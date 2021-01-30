@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  
+</head>
+
+<body>
+
+  <h2>Считаем перелив меди.</h2>
+
+  <h3>До перелива меди.</h2>
+  <p>Цита 1: <input id="player1" name="input" value="0" readonly=true></p>
+  <p>Цита 2: <input id="player2" name="input" value="0" readonly=true></p>
+  <p>Разница: <input id="different" name="input" value="0" readonly=true></p>
+  <p>Сумма: <input id="sum" name="input" value="0" readonly=true></p>
+
+  <h3>После перелива меди.</h2>
+  <p>Цита 1: <input id="newplayer1" name="input" value="0" readonly=true></p>
+  <p>Цита 2: <input id="newplayer2" name="input" value="0" readonly=true></p>
+  <p>Разница: <input id="newdifferent" name="input" value="0" readonly=true></p>
+  <p>Сумма: <input id="newsum" name="input" value="0" readonly=true></p>
+
+  <script>
+
+    player1.value = +prompt('Введи медь первого игрока', 0);
+    player2.value = +prompt('Введи медь второго игрока', 0);
+    different.value = player2.value - player1.value;
+    sum.value =  +player1.value + +player2.value;
+    calculate(player1.value, player2.value);
+
+
+    function calculate (p1, p2) {
+      let newp1 = Number(p1);
+      let newp2 = Number(p2);
+      let different= newp2 - newp1;
+      console.log(different);
+      while (true) {
+        if (different > 400) {
+          console.log('разница больше 400')
+          break;
+        }
+        if (different == 400) {
+          console.log('разница 400')
+          break;
+        }
+        newp1 -= 1;
+        newp2 += 1;
+        different = newp2 - newp1;
+      }
+/*       console.log(different);
+      console.log(newp1);
+      console.log(newp2); */
+      newplayer1.value = newp1;
+      newplayer2.value = newp2;
+      newdifferent.value = different;
+      newsum.value = newp1 + newp2;
+    }
+
+
+
+
+
+  </script>
+</body>
+
+</html>
