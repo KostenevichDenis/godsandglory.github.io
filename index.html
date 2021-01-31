@@ -11,8 +11,9 @@
   <h2>Считаем перелив меди.</h2>
 
   <h3>До перелива меди.</h2>
-  <p>Цита 1: <input id="player1" name="input" value="0" readonly=true></p>
-  <p>Цита 2: <input id="player2" name="input" value="0" readonly=true></p>
+  <p>Цита 1: <input id="player1" name="input" value="0" onclick="this.value=''"></p>
+  <p>Цита 2: <input id="player2" name="input" value="0" onclick="this.value=''"></p>
+  <input type="button" id="elem" onclick="calculate(player1.value, player2.value)" value="Рассчитать">
   <p>Разница: <input id="different" name="input" value="0" readonly=true></p>
   <p>Сумма: <input id="sum" name="input" value="0" readonly=true></p>
 
@@ -24,14 +25,15 @@
 
   <script>
 
-    player1.value = +prompt('Введи медь первого игрока', 0);
-    player2.value = +prompt('Введи медь второго игрока', 0);
-    different.value = player2.value - player1.value;
-    sum.value =  +player1.value + +player2.value;
-    setTimeout(calculate(player1.value, player2.value), 0);
-
+    /* player1.value = +prompt('Введи медь первого игрока', 0);
+    player2.value = +prompt('Введи медь второго игрока', 0); */
+    
+    /* setTimeout(calculate(player1.value, player2.value), 0); */
+    
 
     function calculate (p1, p2) {
+      this.different.value = player2.value - player1.value;
+      sum.value =  +player1.value + +player2.value;
       let newp1 = Number(p1);
       let newp2 = Number(p2);
       let different= newp2 - newp1;
