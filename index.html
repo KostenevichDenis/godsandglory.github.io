@@ -11,20 +11,22 @@
   <h2>Считаем перелив меди.</h2>
 
   <h3>До перелива меди.</h2>
-  <p>Цита 1: <input id="player1" name="input" value="Введи медь сливающего" onclick="this.value=''"></p>
-  <p>Цита 2: <input id="player2" name="input" value="Введи медь заливаемого" onclick="this.value=''"></p>
-  <input type="button" id="elem" onclick="calculate(player1.value, player2.value)" value="Рассчитать">
-  <p>Разница: <input id="different" name="input" value="0" readonly=true></p>
-  <p>Сумма: <input id="sum" name="input" value="0" readonly=true></p>
-
-  <h3>После перелива меди.</h2>
-  <p>Цита 1: <input id="newplayer1" name="input" value="0" readonly=true></p>
-  <p>Цита 2: <input id="newplayer2" name="input" value="0" readonly=true></p>
-  <p>Разница: <input id="newdifferent" name="input" value="0" readonly=true></p>
-  <p>Сумма: <input id="newsum" name="input" value="0" readonly=true></p>
-
+  <div class="main">
+    <p class="field">Цита 1: <input id="player1" name="input" value="Введи медь сливающего" onclick="this.value=''"></p>
+    <p class="field">Цита 2: <input id="player2" name="input" value="Введи медь заливаемого" onclick="this.value=''"></p>
+    <input type="button" id="elem" onclick="calculate(player1.value, player2.value)" value="Рассчитать" class="button">
+    <p class="field">Разница: <input id="different" name="input" value="0" readonly=true></p>
+    <p class="field">Сумма: <input id="sum" name="input" value="0" readonly=true></p>
+  </div>
+  <div class="main">
+    <h3>После перелива меди.</h2>
+    <p class="field">Цита 1: <input id="newplayer1" name="input" value="0" readonly=true></p>
+    <p class="field">Цита 2: <input id="newplayer2" name="input" value="0" readonly=true></p>
+    <p class="field">Разница: <input id="newdifferent" name="input" value="0" readonly=true></p>
+    <p class="field">Сумма: <input id="newsum" name="input" value="0" readonly=true></p>
+</div>
   <script>
-
+    elem.style.rigth = player1.getBoundingClientRect().rigth+'px';
     /* player1.value = +prompt('Введи медь первого игрока', 0);
     player2.value = +prompt('Введи медь второго игрока', 0); */
     
@@ -45,6 +47,9 @@
         }
         if (different == 400) {
           /* console.log('разница 400') */
+          break;
+        }
+        if (p1 == 0 || p2 == 0) {
           break;
         }
         newp1 -= 1;
