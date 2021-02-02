@@ -27,11 +27,7 @@
 </div>
   <script>
     elem.style.rigth = player1.getBoundingClientRect().rigth+'px';
-    /* player1.value = +prompt('Введи медь первого игрока', 0);
-    player2.value = +prompt('Введи медь второго игрока', 0); */
-    
-    /* setTimeout(calculate(player1.value, player2.value), 0); */
-    
+    document.addEventListener('keydown', function(event) {if (event.code == 'Enter' || event.code == 'NumpadEnter') {calculate(player1.value, player2.value)}});
 
     function calculate (p1, p2) {
       this.different.value = +player2.value - +player1.value;
@@ -55,10 +51,9 @@
         newp1 -= 1;
         newp2 += 1;
         different = newp2 - newp1;
+        if (newp1 == 1) break;
       }
-/*       console.log(different);
-      console.log(newp1);
-      console.log(newp2); */
+
       newplayer1.value = newp1;
       newplayer2.value = newp2;
       newdifferent.value = different;
